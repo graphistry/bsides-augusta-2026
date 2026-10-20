@@ -14,7 +14,7 @@ Compromise** — and you can run it **two ways**:
 Either way you answer the same six questions (**Q1–Q6**) and score yourself. Pick the
 path that fits you, or try both and compare.
 
-**Time:** ~45 minutes • **Notebook:** `lab2_splunk_mcp.ipynb`
+**Time:** ~60 minutes • **Notebook:** `lab2_splunk_mcp.ipynb`
 
 > **Prerequisite: finish Lab 0 first.** Lab 0 installs `splunk-mcp-server2` and sets your
 > Splunk credentials (Path A), and connects Louie (Path B). This lab assumes that's done.

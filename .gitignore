@@ -85,3 +85,4 @@ seat_cards*.txt
 role_*_before_tuning*.json
 teardown-log-*.md
 openai-usage-per-seat*.csv
+DAY-OF-RUNBOOK.md

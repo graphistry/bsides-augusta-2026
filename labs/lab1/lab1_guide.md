@@ -6,7 +6,7 @@ Two parts, both with **no tools and no Splunk**, both on your own laptop:
 
 - **Part A** runs a small open-source LLM and asks it the B2 questions closed-book. It
   writes text, and it makes things up.
-- **Part B** runs [Laya](https://github.com/receptron/laya), an open-source, Jev-compatible
+- **Part B** runs [Laya](https://github.com/NandhaKishorM/laya), an open-source, Jev-compatible
   *decision model*. It doesn't write text: it answers typed yes/no and multiple-choice
   questions with probabilities, in milliseconds on a CPU. You point it at B2 CloudTrail
   events and find out whether it can tell attacker from routine out of the box.

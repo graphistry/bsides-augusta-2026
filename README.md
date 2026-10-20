@@ -64,7 +64,7 @@ IAM, and EC2 — runs across the whole course, so each lab builds on the last.
 | Lab | Day | Time | What you do |
 |-----|-----|------|-------------|
 | **[Lab 0 — Setup](labs/lab0/lab0_guide.md)** | 1 | 35m | Reach Splunk three ways (MCP harness, `louie-py`, Louie desktop) and run your first query + graph. |
-| **[Lab 1 — DIY LLM + decision API](labs/lab1/lab1_guide.md)** | 1 | 60m | Run an OSS LLM locally and watch it hallucinate on SOC questions. Then run [Laya](https://github.com/receptron/laya), an open-source Jev-compatible decision model, zero-shot on B2 CloudTrail events: it starts *worse than random* — see what context fixes. |
+| **[Lab 1 — DIY LLM + decision API](labs/lab1/lab1_guide.md)** | 1 | 60m | Run an OSS LLM locally and watch it hallucinate on SOC questions. Then run [Laya](https://github.com/NandhaKishorM/laya), an open-source Jev-compatible decision model, zero-shot on B2 CloudTrail events: it starts *worse than random* — see what context fixes. |
 | **[Lab 2 — AI CTF](labs/lab2/lab2_guide.md)** | 1 | 60m | Investigate B2 — **BYO agent** (Claude Code / OpenCode over MCP) or **running with Louie** — across the six forensic questions, with vibes evals. |
 | **[Lab 3 — Skills, timelining & evals](labs/lab3/lab3_guide.md)** | 2 | 75m | Build a BOTS Q skill and a timelining skill, run it on the attack chain, score it against a reference, error-analyze and fix it. Code track: automate via the `louie-py` API. |
 | **[Lab 4 — Triage router & contamination](labs/lab4/lab4_guide.md)** | 2 | 75m | Turn Laya into a router that suppresses routine events before they reach the expensive agent: test / validation / holdout splits, temperature calibration, a recall-vs-suppression threshold. Then check whether your agent's CTF score is contamination. |
@@ -142,7 +142,7 @@ Bring a laptop (8 GB+ RAM) with a modern browser, Wi-Fi, and its power adapter. 
 - **Claude Code CLI** or **OpenCode** (for the BYO-agent path; optional otherwise)
 - A free **[Graphistry Hub](https://hub.graphistry.com)** account (for the Louie paths)
 
-**Download these before Wednesday** — conference Wi-Fi will not cooperate with 15 people
+**Download these before Wednesday** — conference Wi-Fi will not cooperate with 20 people
 pulling gigabytes at once:
 
 ```bash
