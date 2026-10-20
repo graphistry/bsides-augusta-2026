@@ -82,6 +82,6 @@ tune_role.py
 verify_seat.py
 seats*.csv
 seat_cards*.txt
-role_*_before_tuning.json
+role_*_before_tuning*.json
 teardown-log-*.md
 openai-usage-per-seat*.csv
