@@ -5,11 +5,17 @@ training, BSides Augusta 2026.**
 Building AI systems that reliably run security investigations.
 
 📅 **October 21–22, 2026 · 09:00–17:00 ET both days** (one-hour lunch each day)
-Instructors: **Sindre · Leo** (Graphistry / Louie.ai), with Louie.ai staff on the floor.
+📍 Bit room, first floor, Hull-McKnight building, Georgia Cyber Center. Check in at the
+BSides Augusta desk on Wednesday morning.
+Instructors: **Leo Meyerovich** and **Sindre Breda** (Graphistry / Louie.ai), with Louie.ai
+staff on the floor. Sindre runs the room both days. Leo teaches the morning sessions
+(roughly the first third of Day 1 and the first half of Day 2).
 This is the full two-day course — the BSides Canberra and BSides Las Vegas 2026 workshops
 were one-day distillations of it.
 
 📦 **Repo:** <https://github.com/graphistry/bsides-augusta-2026>
+💬 **Chat:** the class Discord channel (invite sent by email). Links, questions and lab
+help during and after the class.
 🔑 **Sign up first (free):** a [**Graphistry Hub**](https://hub.graphistry.com) account —
 you'll use it for the Louie paths and to render graphs.
 
@@ -27,24 +33,28 @@ Everything is built around one spine:
 
 > **plan → run → eval**
 
-Day 1 is the **copilot** half: run models with and without tools, reach a real Splunk
-cyber range through an agent harness, and investigate a multi-domain incident. Day 2 is
-the **commander** half: make the agent reliable with skills and planning, build an eval
-loop that measures whether your changes helped (and whether the score is even real), and
-ship a full investigation deliverable.
+Day 1 is the **copilot** half: run models on your own laptop, including a small decision
+model, reach a real Splunk cyber range through an agent harness, and investigate a
+multi-domain incident. Day 2 is the **commander** half: make the agent reliable with
+skills and planning, build an eval loop that measures whether your changes helped (and
+whether the score is even real), turn a cheap model into a calibrated triage router,
+secure the whole thing, and ship a full investigation deliverable.
 
 You leave with a working investigation agent, a reusable timelining skill, an eval loop,
-and a defensible, evidence-based opinion about what AI can and cannot do in your SOC.
+a measured triage router, and a defensible, evidence-based opinion about what AI can and
+cannot do in your SOC.
 
 ## Who it's for
 
-Beginner to intermediate. No prior AI, ML, or agent experience needed, no GPU required.
+Beginner to advanced. No prior AI, ML, or agent experience needed, no GPU required.
 
 - **Analysts** (SOC, IR, DFIR, hunt, threat intel, vuln mgmt) — go beyond copilots.
-- **Engineers and developers** — build agents, scale RAG, connect your own tools.
+- **Engineers and platform teams** — build agents, run models on-prem, connect your own tools.
 - **Leaders** — understand ROI, technology trajectories, and how to responsibly target outcomes.
 
-Every lab has a **prompt-first (no-code)** path and a **code-first (Python)** path.
+Every lab has a **prompt-first (no-code)** path and a **code-first (Python)** path, and
+three levels: **base**, **stretch**, and **hard mode** (e.g. an uncontaminated CTF, your own
+MCP, subagents). If the base level feels easy, keep going.
 
 ## The labs
 
@@ -53,55 +63,56 @@ IAM, and EC2 — runs across the whole course, so each lab builds on the last.
 
 | Lab | Day | Time | What you do |
 |-----|-----|------|-------------|
-| **[Lab 1 — DIY LLM](labs/lab1/lab1_guide.md)** | 1 | 60m | Run an OSS LLM locally and watch it hallucinate on SOC questions. Then reach Splunk three ways (MCP harness, `louie-py`, Louie desktop) and run your first query + graph. |
-| **[Lab 2 — AI CTF](labs/lab2/lab2_guide.md)** | 1 | 105m | Investigate B2 — **BYO agent** (Claude Code / OpenCode over MCP) or **running with Louie** — across all six forensic questions, then compare the two harnesses. |
-| **[Lab 3 — Skills & Timelining](labs/lab3/lab3_guide.md)** | 1–2 | 75m + 45m | Build a BOTS Q skill and prove it helps, author a timelining skill, run it on the attack chain, score it against a reference. Day 2: automate the flow via the `louie-py` API. |
-| **[Lab 4 — Evals & Leaderboard](labs/lab4/lab4_guide.md)** | 2 | 120m | Score the skill, error-analyze the failures, fix it, watch the score move — then check whether the score is contamination. |
-| **[Capstone — IR report + graphs](labs/capstone/capstone_guide.md)** | 2 | 120m | In-room, instructor-reviewed: an IR report for B2 plus a timeline-entity graph and an infrastructure graph on Graphistry Hub. |
+| **[Lab 0 — Setup](labs/lab0/lab0_guide.md)** | 1 | 35m | Reach Splunk three ways (MCP harness, `louie-py`, Louie desktop) and run your first query + graph. |
+| **[Lab 1 — DIY LLM + decision API](labs/lab1/lab1_guide.md)** | 1 | 60m | Run an OSS LLM locally and watch it hallucinate on SOC questions. Then run [Laya](https://github.com/receptron/laya), an open-source Jev-compatible decision model, zero-shot on B2 CloudTrail events: it starts *worse than random* — see what context fixes. |
+| **[Lab 2 — AI CTF](labs/lab2/lab2_guide.md)** | 1 | 60m | Investigate B2 — **BYO agent** (Claude Code / OpenCode over MCP) or **running with Louie** — across the six forensic questions, with vibes evals. |
+| **[Lab 3 — Skills, timelining & evals](labs/lab3/lab3_guide.md)** | 2 | 75m | Build a BOTS Q skill and a timelining skill, run it on the attack chain, score it against a reference, error-analyze and fix it. Code track: automate via the `louie-py` API. |
+| **[Lab 4 — Triage router & contamination](labs/lab4/lab4_guide.md)** | 2 | 75m | Turn Laya into a router that suppresses routine events before they reach the expensive agent: test / validation / holdout splits, temperature calibration, a recall-vs-suppression threshold. Then check whether your agent's CTF score is contamination. |
+| **[Capstone — IR report + graphs](labs/capstone/capstone_guide.md)** | 2 | 75m | In-room, instructor-reviewed: an IR report for B2 plus a timeline-entity graph and an infrastructure graph on Graphistry Hub. Alternative: craft malicious events that get past your own classifier. |
 
-Full schedule, lab breakdown, tracks, and the mapping to the one-day BSides editions:
+Full lab breakdown, tracks, and the mapping to the one-day BSides editions:
 **[`labs/README.md`](labs/README.md)**.
 
 ## Schedule
 
 Two days, 09:00–17:00 ET, one-hour lunch each day. Room logistics and any day-of changes
-are in the session GDoc.
+go out on Discord.
 
 ### Day 1 — Copilot: models, harnesses, investigation
 
 | Time | Length | Block |
 |------|--------|-------|
-| 09:00–09:30 | 30m | Intro & logistics |
-| 09:30–10:00 | 30m | Talk — LLMs, agents & harnesses: why reliability compounds |
-| 10:00–11:00 | 60m | **Lab 1** — DIY LLM: a local OSS model hallucinating on SOC questions, then reach Splunk three ways |
-| 11:00–11:15 | 15m | Break |
-| 11:15–11:45 | 30m | Talk — DB MCPs & the semantic layer, CTFs & bots-bench |
-| 11:45–12:30 | 45m | **Lab 2 (part 1)** — AI CTF: BOTSv3 B2, Q1–Q3 |
-| 12:30–13:30 | 60m | Lunch |
-| 13:30–14:30 | 60m | **Lab 2 (part 2)** — Q4–Q6, vibes evals, BYO agent vs Louie |
-| 14:30–15:00 | 30m | Talk — Skills, memory & planning |
-| 15:00–15:15 | 15m | Break |
-| 15:15–16:30 | 75m | **Lab 3 (Tasks 1–2)** — BOTS Q skill, timelining skill, vibes evals |
-| 16:30–17:00 | 30m | Day 1 wrap — what moved the number, Day 2 preview |
+| 09:00–09:40 | 40m | Intro, group intros & use cases |
+| 09:40–10:15 | 35m | **Lab 0** — Setup: reach Splunk three ways |
+| 10:15–11:00 | 45m | Talk — AI foundations & self-hosting: state and trends |
+| 11:00–12:00 | 60m | **Lab 1** — DIY LLM + decision API (local LLM, Laya zero-shot) |
+| 12:00–13:00 | 60m | Lunch |
+| 13:00–13:45 | 45m | Talk — Harnesses, MCPs & the semantic layer |
+| 13:45–14:00 | 15m | Break |
+| 14:00–15:00 | 60m | **Lab 2** — AI CTF: BOTSv3 B2 + vibes evals |
+| 15:00–15:45 | 45m | Talk — CTFs & botsbench; skills & planning (decision APIs, swarms, hooks, triggers, goals) |
+| 15:45–16:00 | 15m | Break |
+| 16:00–16:30 | 30m | Talk — Maturity: evals & AI investigation factories |
+| 16:30–17:00 | 30m | Group discussion |
 
-### Day 2 — Commander: evals, automation, delivery
+### Day 2 — Commander: evals, security, delivery
 
 | Time | Length | Block |
 |------|--------|-------|
-| 09:00–09:15 | 15m | Recap & Day 1 leftovers |
-| 09:15–09:45 | 30m | Talk — Evals & AI investigation factories |
-| 09:45–11:00 | 75m | **Lab 4 (Tasks 1–2)** — Evals: error analysis, the eval loop |
-| 11:00–11:15 | 15m | Break |
-| 11:15–12:00 | 45m | **Lab 4 (Task 3)** — Contamination: is the score real? |
-| 12:00–12:30 | 30m | Talk — RAG, semantic layers & self-planning agents |
-| 12:30–13:30 | 60m | Lunch |
-| 13:30–14:15 | 45m | **Lab 3 (Task 3)** — Automate the flow via the `louie-py` API (no-code track: skill hardening) |
-| 14:15–16:15 | 120m | **Capstone** — IR report + timeline-entity graph + infrastructure graph |
-| 16:15–16:30 | 15m | Break |
-| 16:30–17:00 | 30m | Capstone review, group discussion & your SOC's next steps |
+| 09:00–09:30 | 30m | Recap & Day 1 leftovers |
+| 09:30–10:00 | 30m | Talk — Evals in a SOC setting: adversarial evals & skill testing |
+| 10:00–11:15 | 75m | **Lab 3** — Skills, timelining & evals |
+| 11:15–11:30 | 15m | Break |
+| 11:30–12:15 | 45m | Talk — Securing agents (proxies, auto mode, monitors, MCP vs skills) & compliance |
+| 12:15–13:15 | 60m | Lunch |
+| 13:15–14:30 | 75m | **Lab 4** — Triage router & contamination |
+| 14:30–14:45 | 15m | Break |
+| 14:45–16:00 | 75m | **Capstone** — IR report + graphs (or: get past the classifier) |
+| 16:00–16:30 | 30m | Talk — RAG & memory, architecture & team patterns, future themes |
+| 16:30–17:00 | 30m | Round-robin "one thing you'll try next week", exit survey |
 
-Lab time is about 8h45m of the 14 hours; talks and discussion about 3h30m; the rest is
-breaks and lunch.
+Excluding lunch, that is 14 hours: about 6h20m of labs, 6h40m of talks and discussion,
+and 1h of breaks.
 
 ## Three ways to reach Splunk
 
@@ -120,20 +131,28 @@ git clone https://github.com/graphistry/bsides-augusta-2026.git
 cd bsides-augusta-2026
 ```
 
-Then do **[Lab 1](labs/lab1/lab1_guide.md)** before Day 1 if you can — it installs
-everything and catches account, connector, and credential problems early. Grab your free
-**[Graphistry Hub](https://hub.graphistry.com)** account now if you don't have one.
+Then do **[Lab 0](labs/lab0/lab0_guide.md)** before Day 1 if you can — it installs
+everything and catches account, connector, and credential problems early.
 
-Bring a laptop with a modern browser, Wi-Fi, and its power adapter. You'll need:
+Bring a laptop (8 GB+ RAM) with a modern browser, Wi-Fi, and its power adapter. You'll need:
 
 - **Splunk access** with BOTSv3 loaded (cyber-range credentials provided in-session)
-- **Python 3.12+** — required by the Splunk **MCP** server (`splunk-mcp-server2`) and the
-  `louie-py` code path. **Not needed if you only use Louie desktop** (no code).
+- **Python 3.12+** — required by the Splunk **MCP** server (`splunk-mcp-server2`), the
+  `louie-py` code path, and the Laya labs. **Not needed if you only use Louie desktop** (no code).
 - **Claude Code CLI** or **OpenCode** (for the BYO-agent path; optional otherwise)
-- For Lab 1's local-LLM part: a Google account (the Colab notebook installs Ollama for you), or
-  **[Ollama](https://ollama.com)** locally with a small model pulled (`ollama pull phi3:mini`, ~2 GB —
-  **pull it before the session**, conference Wi-Fi will not cooperate)
 - A free **[Graphistry Hub](https://hub.graphistry.com)** account (for the Louie paths)
+
+**Download these before Wednesday** — conference Wi-Fi will not cooperate with 15 people
+pulling gigabytes at once:
+
+```bash
+# Laya decision model (Labs 1 and 4) — ~1 GB of weights, no GPU needed
+pip install louieai graphistry laya==0.4.8 pandas
+python -c "import laya; laya.load()"
+
+# Small local LLM (Lab 1) — ~2 GB. Or use the Colab notebook, which installs Ollama for you.
+ollama pull phi3:mini
+```
 
 Setup commands and credential handling: see **[`labs/README.md#setup`](labs/README.md#setup)**.
 
@@ -141,17 +160,18 @@ Setup commands and credential handling: see **[`labs/README.md#setup`](labs/READ
 
 These are teaching exercises. If you pair with an LLM, the intent is that it helps you
 *write and debug code* — not that it solves the CTF or opens the answer key for you. The
-lab notebooks say so explicitly; the evals lab (Lab 4) relaxes this since its result is
+lab notebooks say so explicitly; the evals labs (Labs 3–4) relax this since the result is
 already known.
 
 ## Repository layout
 
 ```
 labs/          the course — one folder per lab, plus labs/README.md
-  lab1/ ...    DIY LLM: a local OSS model hallucinating, then reach Splunk three ways (+ mcp_config.json)
+  lab0/ ...    setup: reach Splunk three ways (+ mcp_config.json)
+  lab1/ ...    DIY LLM + decision API: local OSS model, Laya zero-shot
   lab2/ ...    AI CTF: BOTSv3 B2 investigation
-  lab3/ ...    skills, timelining, API automation
-  lab4/ ...    evals and contamination
+  lab3/ ...    skills, timelining, evals, API automation
+  lab4/ ...    Laya triage router, contamination check (+ offline fallback data)
   capstone/ .. in-room capstone: IR report + graphs
 ```
 
