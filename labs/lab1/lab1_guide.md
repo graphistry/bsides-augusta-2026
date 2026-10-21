@@ -119,6 +119,26 @@ What you do:
 5. **Pull two levers:** give it the alert context, then put analyst tradecraft into the
    question's criteria. Re-score after each.
 
+### AUC vs. Kappa in one minute
+
+Both compare the model with your answer key, but they ask different questions.
+
+- **AUC** asks: does the model *rank* attacker events above routine ones? Pick one random
+  attacker event and one random routine event; AUC is the probability the attacker event
+  got the higher score. 0.5 is a coin flip, 1.0 is a perfect ordering, below 0.5 means it
+  ranks backwards. It ignores the threshold entirely.
+- **Cohen's Kappa** asks: at a chosen cutoff (0.5 today), are the model's *decisions*
+  better than guessing? Plain accuracy would lie here — 60% of the events are routine, so
+  a model that always says "routine" is 60% accurate and useless. Kappa subtracts the
+  agreement you would get by chance: 0 is guessing, 1 is perfect. Rough guide: 0.7 is a
+  decent first prompt, 0.8 good, above 0.9 great.
+
+Read them together. High AUC with Kappa at 0 means the signal is there but every score
+sits on the wrong side of the cutoff, so the fix is the threshold, not the model (Lab 4).
+Good Kappa with mediocre AUC means you tuned a cutoff to one dataset and it may not
+survive new data. And temperature calibration (Lab 4) never moves a score across 0.5, so
+it can fix *how much to trust* the number without changing Kappa at all.
+
 ### What to watch for
 - **Zero-shot is worse than a coin flip** (AUC ≈ 0.37 on the fallback data). Fast and local
   does not mean useful.
