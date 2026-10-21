@@ -62,9 +62,9 @@ skipped Lab 1. Then:
 - 🟡 **Stretch — label bias:** swap the answer labels from false/true to A/B (same meaning) and
   count how many routing decisions flip.
 - 🟡 **Stretch — failure analysis:** group the router's mistakes. Which hard negatives fooled it?
-- 🔴 **Hard mode:** take it out of distribution (a different BOTSv3 window or the Cyber Blue Team
-  CTF), wire Laya in as the first step of your Lab 3 agent, or plot source IP → event name
-  coloured by P(attacker) in Graphistry to see where the model is unsure.
+- 🔴 **Hard mode:** take it out of distribution (a different BOTSv3 window), wire Laya in as
+  the first step of your Lab 3 agent, or plot source IP → event name coloured by P(attacker)
+  in Graphistry to see where the model is unsure.
 
 **Share-out:** your holdout AUC, Kappa, and the share of routine events you suppress at your
 recall target — and where you would (and wouldn't) deploy this.
