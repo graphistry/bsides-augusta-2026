@@ -8,8 +8,8 @@ Building AI systems that reliably run security investigations.
 📍 Bit room, first floor, Hull-McKnight building, Georgia Cyber Center. Check in at the
 BSides Augusta desk on Wednesday morning.
 Instructors: **Leo Meyerovich** and **Sindre Breda** (Graphistry / Louie.ai), with Louie.ai
-staff on the floor. Sindre runs the room both days. Leo teaches the morning sessions
-(roughly the first third of Day 1 and the first half of Day 2).
+staff on the floor. Sindre runs the room both days. Leo teaches Day 1 until the afternoon
+and the first half of Day 2.
 This is the full two-day course — the BSides Canberra and BSides Las Vegas 2026 workshops
 were one-day distillations of it.
 
@@ -84,15 +84,16 @@ go out on Discord.
 |------|--------|-------|
 | 09:00–09:40 | 40m | Intro, group intros & use cases |
 | 09:40–10:15 | 35m | **Lab 0** — Setup: reach Splunk three ways |
-| 10:15–11:00 | 45m | Talk — AI foundations & self-hosting: state and trends |
+| 10:15–10:35 | 20m | Talk — AI fundamentals: vectors, generation, decision APIs (Jev) |
+| 10:35–11:00 | 25m | Talk — Self-hosting: MoE, quantization, open-weight models (incl. 10m break) |
 | 11:00–12:00 | 60m | **Lab 1** — DIY LLM + decision API (local LLM, Laya zero-shot) |
 | 12:00–13:00 | 60m | Lunch |
-| 13:00–13:45 | 45m | Talk — Harnesses, MCPs & the semantic layer |
+| 13:00–13:45 | 45m | Talk — Modern harnesses, thick MCPs & the semantic layer |
 | 13:45–14:00 | 15m | Break |
 | 14:00–15:00 | 60m | **Lab 2** — AI CTF: BOTSv3 B2 + vibes evals |
-| 15:00–15:45 | 45m | Talk — CTFs & botsbench; skills & planning (decision APIs, swarms, hooks, triggers, goals) |
+| 15:00–15:45 | 45m | Talk — Agents, skills & planning: BOTS baselines, plan.md, planning tricks |
 | 15:45–16:00 | 15m | Break |
-| 16:00–16:30 | 30m | Talk — Maturity: evals & AI investigation factories |
+| 16:00–16:30 | 30m | Talk — Maturity & evolution: evals & AI investigation factories |
 | 16:30–17:00 | 30m | Group discussion |
 
 ### Day 2 — Commander: evals, security, delivery
@@ -111,8 +112,8 @@ go out on Discord.
 | 16:00–16:30 | 30m | Talk — RAG & memory, architecture & team patterns, future themes |
 | 16:30–17:00 | 30m | Round-robin "one thing you'll try next week", exit survey |
 
-Excluding lunch, that is 14 hours: about 6h20m of labs, 6h40m of talks and discussion,
-and 1h of breaks.
+Excluding lunch, that is 14 hours: about 6h20m of labs, 6h30m of talks and discussion,
+and 1h10m of breaks.
 
 ## Three ways to reach Splunk
 
