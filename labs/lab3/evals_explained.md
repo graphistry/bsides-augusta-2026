@@ -145,7 +145,7 @@ louie_client = LouieClient(
     timeout=600.0,
     streaming_timeout=600.0,
 )
-lui = Cursor(client=louie_client, folder="training-evals")
+lui = Cursor(client=louie_client)
 
 # Load questions
 with open("../lab2/botsv3_b2_tests.json") as f:
@@ -166,7 +166,7 @@ for qid, q in b2_tests.items():
     print(f"\n--- {q['name']} ---")
     passes = 0
     for run in range(3):
-        lui.new(name=f"Eval {qid} run {run}")  # Fresh thread each time
+        lui = lui.new(name=f"Eval {qid} run {run}")  # Fresh thread each time
         start = time.time()
         lui(q["question"], agent="SplunkAgent")
         elapsed = time.time() - start
@@ -180,7 +180,7 @@ for qid, q in b2_tests.items():
 ```
 
 **What's different from the CLI version:**
-- `lui.new()` creates a fresh thread each run (same as starting a new Claude session)
+- `lui = lui.new()` creates a fresh thread each run (`.new()` returns a new cursor, it does not reset the old one) (same as starting a new Claude session)
 - `lui.text` gives you the answer directly — no subprocess output parsing
 - Each run is isolated — the agent doesn't remember previous attempts
 - You can also access `lui.df` if the agent returned tabular data
@@ -192,7 +192,7 @@ for qid, q in b2_tests.items():
 agent_answer = lui.text
 
 # Open a new thread and ask louie to judge the answer
-lui.new(name=f"Judge {qid}")
+lui = lui.new(name=f"Judge {qid}")
 lui(f"""The question was: {q['question']}
 The expected answer is: {q['expected_output']}
 The agent said: {agent_answer}
