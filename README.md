@@ -168,6 +168,7 @@ already known.
 
 ```
 labs/          the course — one folder per lab, plus labs/README.md
+resources/     reference material from the talks (PLAN.md task plan template)
   lab0/ ...    setup: reach Splunk three ways (+ mcp_config.json)
   lab1/ ...    DIY LLM + decision API: local OSS model, Laya zero-shot
   lab2/ ...    AI CTF: BOTSv3 B2 investigation
