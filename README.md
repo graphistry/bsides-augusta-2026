@@ -148,7 +148,7 @@ pulling gigabytes at once:
 
 ```bash
 # Laya decision model (Labs 1 and 4) — ~1 GB of weights, no GPU needed
-pip install louieai graphistry laya==0.4.8 pandas
+pip install "louieai>=0.7" graphistry laya==0.4.8 pandas
 python -c "import laya; laya.load()"
 
 # Small local LLM (Lab 1) — ~2 GB. Or use the Colab notebook, which installs Ollama for you.

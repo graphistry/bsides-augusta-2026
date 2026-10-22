@@ -141,7 +141,7 @@ louie_client = LouieClient(
     # personal key:  personal_key_id=..., personal_key_secret=...   (see evals_explained.ipynb)
     username=os.environ["GRAPHISTRY_USERNAME"],
     password=os.environ["GRAPHISTRY_PASSWORD"],
-    server=os.environ.get("GRAPHISTRY_HOST", "hub.graphistry.com"),
+    graphistry_server=os.environ.get("GRAPHISTRY_HOST", "hub.graphistry.com"),
     timeout=600.0,
     streaming_timeout=600.0,
 )
