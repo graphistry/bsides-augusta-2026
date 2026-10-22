@@ -15,9 +15,12 @@ In Lab 2 you investigated the B2 incident by asking questions one at a time. Som
 **Time:** ~75 minutes — Task 1 ~15m, Task 2 ~25m, Task 3 ~15m, Task 4 ~20m. Task 5 is hard mode, or take-home.
 
 **Notebooks:**
-- `lab3_skills_louie.ipynb` — Tasks 1–2, code track
-- `evals_explained.ipynb` / `evals_explained.md` — Task 4: the eval loop, both tracks
-- `lab3_api.ipynb` — Task 5: API automation
+- `lab3_skills_louie.ipynb` — Tasks 1–2, code track [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/graphistry/bsides-augusta-2026/blob/main/labs/lab3/lab3_skills_louie.ipynb)
+- `evals_explained.ipynb` / `evals_explained.md` — Task 4: the eval loop, both tracks [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/graphistry/bsides-augusta-2026/blob/main/labs/lab3/evals_explained.ipynb)
+- `lab3_api.ipynb` — Task 5: API automation [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/graphistry/bsides-augusta-2026/blob/main/labs/lab3/lab3_api.ipynb)
+
+**No install — Colab.** Open a notebook with its badge, run the Colab cell at the top (clones the repo, installs
+louie-py), set `IS_COLAB = True` in the settings cell, and enter your Graphistry Hub login when the setup cell asks.
 
 No-code track: follow the tasks below in Louie desktop.
 
