@@ -168,7 +168,7 @@ for qid, q in b2_tests.items():
     for run in range(3):
         lui = lui.new(name=f"Eval {qid} run {run}")  # Fresh thread each time
         start = time.time()
-        lui(q["question"], agent="SplunkAgent")
+        lui(q["question"], agent="Splunk")
         elapsed = time.time() - start
 
         correct = check_answer(lui.text or "", q["expected_patterns"])

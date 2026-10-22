@@ -12,7 +12,7 @@ those materials.
 |-----|-----|------|-------|----------------|
 | **Lab 0** | 1 | 35m | Setup | Reach Splunk **three ways** — Claude Code over MCP (Lab 2's harness), louie-py (code), and Louie desktop (no-code) — running the same first query in each: pull the CloudTrail activity for B2's compromised access key and graph it as attacker IP → AWS API call. Do it before the workshop if you can. |
 | **Lab 1** | 1 | 60m | DIY LLM + decision API | **Part A:** run an OSS LLM locally (Ollama) and watch it hallucinate on the B2 questions, closed-book. **Part B:** run [Laya](https://github.com/NandhaKishorM/laya), an open-source Jev-compatible decision model, zero-shot on B2 CloudTrail events — it starts worse than random — and pull the first two levers. |
-| **Lab 2** | 1 | 60m | AI CTF | Investigate BOTSv3 Incident B2 two ways — **BYO agent** (Claude Code / OpenCode over MCP) or **running with Louie** (the `SplunkAgent` writes the SPL) — answering the **six** forensic questions across email, CloudTrail, IAM, and EC2. |
+| **Lab 2** | 1 | 60m | AI CTF | Investigate BOTSv3 Incident B2 two ways — **BYO agent** (Claude Code / OpenCode over MCP) or **running with Louie** (the `Splunk` agent writes the SPL) — answering the **six** forensic questions across email, CloudTrail, IAM, and EC2. |
 | **Lab 3** | 2 | 75m | Skills, timelining & evals | Build a BOTS Q skill and prove it helps, author a timelining skill, score it against a reference, error-analyze it, then run the eval loop: fix the skill and watch the score move. Hard mode: automate it via the louie-py API. |
 | **Lab 4** | 2 | 75m | Triage router & contamination | **Part A:** turn Laya into a calibrated router that suppresses routine events before they reach the expensive agent, and report on holdout once. **Part B:** check whether your agent's B2 score is real or memorized. |
 | **Capstone** | 2 | 75m | IR report + graphs | In the room, in pairs: an IR report for B2 with a timeline-entity graph and an infrastructure graph on Graphistry Hub. Alternative: craft events that get past your own classifier. |
@@ -50,7 +50,7 @@ Two days, 09:00–17:00 ET, one-hour lunch each day. See the
 
 Every investigation lab can be done without writing code, or code-first:
 
-- **Lab 2** runs two ways — **BYO agent** (Claude Code / OpenCode over MCP, the raw harness) or **running with Louie** (the `SplunkAgent` writes the SPL, via `louie-py` or Louie desktop).
+- **Lab 2** runs two ways — **BYO agent** (Claude Code / OpenCode over MCP, the raw harness) or **running with Louie** (the `Splunk` agent writes the SPL, via `louie-py` or Louie desktop).
 - **Lab 3** and the **capstone** each have a **no-code** path (natural-language UI, follow the markdown guide) and a **code-first** path (Python notebook via `louie-py`).
 - **Labs 1 and 4** (Laya) are notebooks: run the cells for the base level, edit them for stretch and hard mode.
 

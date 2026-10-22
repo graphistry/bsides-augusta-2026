@@ -288,7 +288,7 @@ from louieai.notebook import lui
 lui.new(name="B2 Automated - With Skill")
 
 # Run a B2 question
-lui("What is the support case ID that Amazon opens for Bud?", agent="SplunkAgent")
+lui("What is the support case ID that Amazon opens for Bud?", agent="Splunk")
 print(lui.text)
 
 # Access the data
@@ -304,7 +304,7 @@ Compare elapsed time and answer quality between threads with and without the BOT
 lui.new(name="B2 Timeline - Automated")
 lui("""Starting from this clue: Access key AKIAJOGCDXJ5NW5PXUPA was used by IP
 35.153.154.221 at 2018-08-20 09:16:12. Build a timeline of the full attack.""",
-    agent="SplunkAgent")
+    agent="Splunk")
 
 timeline_output = lui.text
 print(timeline_output)

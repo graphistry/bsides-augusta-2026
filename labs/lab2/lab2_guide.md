@@ -8,7 +8,7 @@ Compromise** — and you can run it **two ways**:
 - **Path A — BYO agent.** Point your own coding agent (Claude Code, OpenCode, Codex) at
   Splunk over **Model Context Protocol (MCP)** and drive the investigation yourself. The
   raw harness experience.
-- **Path B — Running with Louie.** Let Louie's `SplunkAgent` write the SPL for you — a few
+- **Path B — Running with Louie.** Let Louie's `Splunk` agent write the SPL for you — a few
   lines of `louie-py`, or by typing into Louie desktop (no code).
 
 Either way you answer the same six questions (**Q1–Q6**) and score yourself. Pick the

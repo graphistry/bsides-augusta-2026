@@ -136,7 +136,7 @@ Graphs are a Louie feature — that's Approaches 2 and 3.
 
 ## Approach 2 — louie-py (code)
 
-Louie holds the **Splunk connector**, runs the agents (`SplunkAgent` writes the SPL),
+Louie holds the **Splunk connector**, runs the agents (the `Splunk` agent writes the SPL),
 and hands back dataframes (`lui.df`) *and* Graphistry graphs (`lui.g` / `lui.url`).
 
 **Connect** — put credentials in `.env` at the repo root, then run the connect cell:
@@ -146,7 +146,7 @@ cp .env.example .env    # then edit: GRAPHISTRY_HUB_KEY_ID / _SECRET (or usernam
 
 **Query + graph**
 ```python
-lui("In index=botsv3 sourcetype=aws:cloudtrail, find every API call made with access key AKIAJOGCDXJ5NW5PXUPA (field userIdentity.accessKeyId) and count the events by sourceIPAddress, eventName and errorCode. Return the table.", agent="SplunkAgent")
+lui("In index=botsv3 sourcetype=aws:cloudtrail, find every API call made with access key AKIAJOGCDXJ5NW5PXUPA (field userIdentity.accessKeyId) and count the events by sourceIPAddress, eventName and errorCode. Return the table.", agent="Splunk")
 df = lui.df   # sourceIPAddress, eventName, errorCode, count
 g = (graphistry.edges(df, "sourceIPAddress", "eventName")
        .bind(edge_weight="count")
@@ -173,7 +173,7 @@ Approach 2 — so if Approach 2 worked, this will too. **No Python, no CLI, no M
 1. Install **Louie desktop** — download the installer for your OS from
    **https://download.louie.ai**, run it, and open the app.
 2. Sign in with your Graphistry Hub / Louie credentials (the same ones in your `.env`).
-3. New thread → select the **SplunkAgent** / Splunk connector.
+3. New thread → select the **Splunk** agent / Splunk connector.
 4. Ask: *"In index=botsv3 sourcetype=aws:cloudtrail, find every API call made with access key AKIAJOGCDXJ5NW5PXUPA (field userIdentity.accessKeyId) and count the events by sourceIPAddress, eventName and errorCode. Return the table."*
 5. Follow up: *"Add a column called outcome that is "success" when errorCode is empty and "denied" otherwise. Then graph sourceIPAddress → eventName with edges colored by outcome: green for success, red for denied."* — the app renders it inline.
 
