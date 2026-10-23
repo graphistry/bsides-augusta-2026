@@ -143,8 +143,7 @@ Bring a laptop (8 GB+ RAM) with a modern browser, Wi-Fi, and its power adapter. 
 - **Claude Code CLI** or **OpenCode** (for the BYO-agent path; optional otherwise)
 - A free **[Graphistry Hub](https://hub.graphistry.com)** account (for the Louie paths)
 
-**Download these before Wednesday** — conference Wi-Fi will not cooperate with 20 people
-pulling gigabytes at once:
+**Download these ahead of time** — conference Wi-Fi might be slow/unavailable:
 
 ```bash
 # Laya decision model (Labs 1 and 4) — ~1 GB of weights, no GPU needed
