@@ -206,14 +206,16 @@ Save, `chmod +x contamination_run.sh`, run it.
 
 ## Record your results
 
-| Q | Expected | Closed-book answer | Verdict |
-| :--- | :--- | :--- | :--- |
-| Q1 case ID | `5244329601` | | |
-| Q2 user agent | `ElasticWolf/5.1.6` | | |
-| Q3 IAM key | `AKIAJOGCDXJ5NW5PXUPA` | | |
-| Q4 secret key | `Bx8/gTsY…` | | |
-| Q5 resource | `nullweb_admin` | | |
-| Q6 codename | `Xenial Xerus` | | |
+Label each column with the exact model ID (e.g. `claude-opus-4-7`, `qwen3.8-27b`).
+
+| Q | Expected | Model A: ________ | Verdict | Model B: ________ | Verdict |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Q1 case ID | `5244329601` | | | | |
+| Q2 user agent | `ElasticWolf/5.1.6` | | | | |
+| Q3 IAM key | `AKIAJOGCDXJ5NW5PXUPA` | | | | |
+| Q4 secret key | `Bx8/gTsY…` | | | | |
+| Q5 resource | `nullweb_admin` | | | | |
+| Q6 codename | `Xenial Xerus` | | | | |
 
 **Verdict key:**
 
@@ -222,6 +224,27 @@ Save, `chmod +x contamination_run.sh`, run it.
 | Correct closed-book | **MEMORIZED** — tests recall, not investigation | Drop from benchmark, or treat score as a ceiling |
 | *"I don't know"* | **Honest** — model knows its limits | Keep; this question does real work |
 | Confidently wrong | **Confabulation** — guesses instead of declining | Dangerous in an agent loop; wrong answers propagate |
+
+---
+
+## Stretch: cross-model comparison
+
+The closed-book test is most informative when you run it on **two models** and compare.
+Pick models that differ on something that matters — provider, size, or whether it runs
+locally — and ask the same six questions, unchanged, of each. Then compare:
+
+1. **Score.** Closed-book correct count per model. Lower is *better* here: it means the
+   Lab 3 with-tools score for that model is more likely to be real investigation.
+2. **Failure style.** For each wrong or declined answer: *"I don't know"*, a confident guess,
+   or a reference to where it has seen this before (a CTF writeup, a blog walkthrough).
+   A model that cites a public walkthrough has told you exactly what it memorized.
+3. **Steering cost.** Go back to your Lab 2/3 notes for each model: how much prompting did it
+   need to stay on task *with* tools? A model that scores 0/6 closed-book but needs heavy
+   steering, versus one that scores 4/6 closed-book and runs unattended, is the real
+   tradeoff — capability and trustworthiness of the score are different axes.
+
+Write one sentence per model stating where it sits on both axes. That sentence is the
+output of this lab.
 
 ---
 

@@ -102,12 +102,19 @@ copy-paste `claude -p` commands.
 3. Record the closed-book answers next to your Lab 3 Task 4 results.
 4. Optional: the **paraphrase probe** — reword a question and see if the memorized answer
    still comes out.
+5. Stretch: the **cross-model comparison** — run the same six closed-book questions on a
+   second model (a different provider, or a local model) and fill both columns of the results
+   table in `contamination_test_prompts.md`. The differences are the lesson: which model knows
+   the answers, which one declines, which one cites a public walkthrough it has clearly read.
 
 ### What to conclude
 
 - Correct with tools, *"I don't know"* without: the agent investigated. Trust the score.
 - Correct both ways: contaminated. The Lab 3 number is not evidence of investigation.
 - Wrong both ways: the skill needs work (back to Lab 3), but at least the test is honest.
+- Two models disagree closed-book: the one that scores lower is the more trustworthy
+  benchmark subject, even if it needed more steering with tools. Capability and
+  contamination are different axes — write down where each model sits on both.
 
 ---
 

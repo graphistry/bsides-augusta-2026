@@ -243,6 +243,24 @@ Submit for instructor review (post your report and graph URLs in the class Disco
 
 ---
 
+## Part 8: Reflection — what would you do differently?
+
+Before you leave, write down (for yourself, or post alongside your submission) short
+answers to these. The course taught the loop; this is where you say what the loop taught
+you about *your* agent.
+
+1. **Failure modes.** Across Labs 2–4, what did your agent get wrong, and what kind of wrong
+   was it: wrong SPL, wrong index, hallucinated field, lost the thread, stopped early,
+   answered from memory instead of evidence?
+2. **Steering.** How much of your time went into keeping the agent on task versus reading
+   its results? Would a different model, harness, or skill have changed that ratio?
+3. **Trust.** Which of your scores do you believe, and why? What would it take to put the
+   contamination-controlled number in front of your own team?
+4. **One change.** If you ran this investigation again on Monday, what is the single thing
+   you would set up differently before asking the first question?
+
+---
+
 ## Alternative capstone: get past the classifier
 
 Prefer to attack? Laya and models like it can be prompt-injected through the data they read.

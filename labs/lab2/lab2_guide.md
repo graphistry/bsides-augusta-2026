@@ -81,6 +81,19 @@ An employee named Bud (username `bstoll`) accidentally commits AWS access keys t
 
 You'll investigate this incident through **six questions** that follow the attack chain (all in `botsv3_b2_tests.json`): two easy lookups (Q1, Q2), three medium multi-step questions (Q3, Q4 — the lethal-trifecta GitHub fetch — and Q5), and the hard one the dataset can't answer alone (Q6). Budget roughly 5–8 minutes per question. **If you fall behind, prioritise Q1, Q4 and Q6** — they span the range — and come back to the rest. The same six are reused by the eval and contamination labs, so the numbering is shared across labs.
 
+**Know the reach boundary before you debug.** Four of the six can be answered from Splunk
+alone. Two cannot, and an agent without web access will stall on them no matter how good its
+SPL is — that is an architectural limit of your setup, not a skill gap:
+
+| Question | Needs | Why |
+|----------|-------|-----|
+| Q1, Q2, Q3, Q5 | Splunk only | Everything is in the indexed CloudTrail and email data |
+| Q4 | Splunk **+ web fetch** | The secret key is in the GitHub commit the notification links to, not in Splunk |
+| Q6 | Splunk **+ external lookup** | The AMI-ID-to-Ubuntu-codename mapping is not in the dataset; the agent must look it up (web) or already know it (contamination — see Lab 4) |
+
+If your harness has no web tool, expect Q4 and Q6 to fail, note why, and move on. That
+result is a finding about the architecture, and it is exactly what Lab 4 measures.
+
 ### Launch Claude Code with MCP
 
 `mcp_config.json` lives in `lab0/` (set up in Lab 0). Point `--mcp-config` at it — you
@@ -141,7 +154,7 @@ and a secret access key (e.g., wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY).
 What is the secret access key of the key that was leaked to the external code repository?
 ```
 
-Watch for: This requires finding the notification email, extracting a GitHub link from its content, and following it. Multi-step reasoning.
+Watch for: This requires finding the notification email, extracting a GitHub link from its content, and following it. Multi-step reasoning. **Needs web access** — an agent that can only reach Splunk cannot complete this one.
 
 ---
 
@@ -164,7 +177,7 @@ What is the codename for that operating system version in the first attempt?
 Answer guidance: Two words.
 ```
 
-Watch for: This is the hardest question. The agent must find `RunInstances` events, extract the AMI ID, and look up what Ubuntu version it corresponds to. This requires external knowledge beyond what's in Splunk.
+Watch for: This is the hardest question. The agent must find `RunInstances` events, extract the AMI ID, and look up what Ubuntu version it corresponds to. This requires external knowledge beyond what's in Splunk. **Needs web access or prior knowledge** — if the agent answers without looking it up, that is memorization, which Lab 4 tests for.
 
 ---
 
@@ -200,7 +213,7 @@ Instructors have them in `botsv3_b2_hints.json` (gitignored).
 
 After completing the investigation, consider:
 
-1. **What made questions easy or hard?** Q1 and Q2 are straightforward lookups. Q6 requires external knowledge. Where's the boundary of what the agent can do with Splunk alone?
+1. **What made questions easy or hard?** Q1 and Q2 are straightforward lookups. Q4 and Q6 need to leave Splunk. Where's the boundary of what the agent can do with Splunk alone, and did your harness let it cross that boundary?
 
 2. **Where did the agent struggle?** For any wrong answers, classify the failure:
    - **Incorrect answer** — wrong SPL, hallucinated data, misinterpreted the question
