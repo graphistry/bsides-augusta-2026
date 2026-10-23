@@ -66,9 +66,9 @@ IAM, and EC2 — runs across the whole course, so each lab builds on the last.
 | **[Lab 0 — Setup](labs/lab0/lab0_guide.md)** | 1 | 35m | Reach Splunk three ways (MCP harness, `louie-py`, Louie desktop) and run your first query + graph. |
 | **[Lab 1 — DIY LLM + decision API](labs/lab1/lab1_guide.md)** | 1 | 60m | Run an OSS LLM locally and watch it hallucinate on SOC questions. Then run [Laya](https://github.com/NandhaKishorM/laya), an open-source Jev-compatible decision model, zero-shot on B2 CloudTrail events: it starts *worse than random* — see what context fixes. |
 | **[Lab 2 — AI CTF](labs/lab2/lab2_guide.md)** | 1 | 60m | Investigate B2 — **BYO agent** (Claude Code / OpenCode over MCP) or **running with Louie** — across the six forensic questions, with vibes evals. |
-| **[Lab 3 — Skills, timelining & evals](labs/lab3/lab3_guide.md)** | 2 | 75m | Build a BOTS Q skill and a timelining skill, run it on the attack chain, score it against a reference, error-analyze and fix it. Code track: automate via the `louie-py` API. |
-| **[Lab 4 — Triage router & contamination](labs/lab4/lab4_guide.md)** | 2 | 75m | Turn Laya into a router that suppresses routine events before they reach the expensive agent: test / validation / holdout splits, temperature calibration, a recall-vs-suppression threshold. Then check whether your agent's CTF score is contamination. |
-| **[Capstone — IR report + graphs](labs/capstone/capstone_guide.md)** | 2 | 75m | In-room, instructor-reviewed: an IR report for B2 plus a timeline-entity graph and an infrastructure graph on Graphistry Hub. Alternative: craft malicious events that get past your own classifier. |
+| **[Lab 3 — Skills, timelining & evals](labs/lab3/lab3_guide.md)** | 2 | 60m | Build a BOTS Q skill and a timelining skill, run it on the attack chain, score it against a reference, error-analyze and fix it. Code track: automate via the `louie-py` API. |
+| **[Lab 4 — Triage router & contamination](labs/lab4/lab4_guide.md)** | 2 | 60m | Turn Laya into a router that suppresses routine events before they reach the expensive agent: test / validation / holdout splits, temperature calibration, a recall-vs-suppression threshold. Then check whether your agent's CTF score is contamination. |
+| **[Capstone — IR report + graphs](labs/capstone/capstone_guide.md)** | 2 | 45m | In-room, instructor-reviewed: an IR report for B2 plus a timeline-entity graph and an infrastructure graph on Graphistry Hub. Alternative: craft malicious events that get past your own classifier. |
 
 Full lab breakdown, tracks, and the mapping to the one-day BSides editions:
 **[`labs/README.md`](labs/README.md)**.
@@ -100,20 +100,22 @@ go out on Discord.
 
 | Time | Length | Block |
 |------|--------|-------|
-| 09:00–09:30 | 30m | Recap & Day 1 leftovers |
-| 09:30–10:00 | 30m | Talk — Evals in a SOC setting: adversarial evals & skill testing |
-| 10:00–11:15 | 75m | **Lab 3** — Skills, timelining & evals |
-| 11:15–11:30 | 15m | Break |
-| 11:30–12:15 | 45m | Talk — Securing agents (proxies, auto mode, monitors, MCP vs skills) & compliance |
-| 12:15–13:15 | 60m | Lunch |
-| 13:15–14:30 | 75m | **Lab 4** — Triage router & contamination |
-| 14:30–14:45 | 15m | Break |
-| 14:45–16:00 | 75m | **Capstone** — IR report + graphs (or: get past the classifier) |
-| 16:00–16:30 | 30m | Talk — RAG & memory, architecture & team patterns, future themes |
-| 16:30–17:00 | 30m | Round-robin "one thing you'll try next week", exit survey |
+| 09:00–09:30 | 30m | Morning discussion & recap (Day 1 leftovers: thick vs thin MCPs, the semantic layer) |
+| 09:30–10:15 | 45m | Talk — Timelining, context graphs & RAG: timelining-first methodology, RAG fundamentals & memory, advanced retrieval & knowledge graphs |
+| 10:15–10:30 | 15m | Break |
+| 10:30–11:00 | 30m | Talk — Evals: core (data splits, Cohen's kappa, eval-driven skill loops) & adversarial (contamination, eval integrity) |
+| 11:00–12:00 | 60m | **Lab 3** — Skills, timelining & evals |
+| 12:00–13:00 | 60m | Lunch |
+| 13:00–13:45 | 45m | Talk — Securing agents (threat models, the lethal trifecta, MCP auth, safeguards) & AI compliance |
+| 13:45–14:00 | 15m | Break |
+| 14:00–14:30 | 30m | Talk — Planning II: investigation-informed planning, multi-agents, pipelines ([`resources/`](resources/README.md)) |
+| 14:30–15:30 | 60m | **Lab 4** — Triage router & contamination (finish Lab 3 if behind) |
+| 15:30–16:15 | 45m | **Capstone** — IR report + graphs (or: get past the classifier) |
+| 16:15–17:00 | 45m | Wrap & guided discussion: key takeaways, round-robin "one thing you'll try next week", take-home challenge, exit survey |
 
-Excluding lunch, that is 14 hours: about 6h20m of labs, 6h30m of talks and discussion,
-and 1h10m of breaks.
+Excluding lunch, that is 14 hours: about 5h20m of labs, 7h30m of talks and discussion,
+and 1h10m of breaks. The lab guides budget a little more time than the slots; use the lab
+time for the base level and come back to stretch and hard mode after class.
 
 ## Three ways to reach Splunk
 
@@ -167,7 +169,8 @@ already known.
 
 ```
 labs/          the course — one folder per lab, plus labs/README.md
-resources/     reference material from the talks (PLAN.md task plan template)
+resources/     reference material from the talks: PLAN.md task plan template,
+               skills/investigation-loop (Planning II)
   lab0/ ...    setup: reach Splunk three ways (+ mcp_config.json)
   lab1/ ...    DIY LLM + decision API: local OSS model, Laya zero-shot
   lab2/ ...    AI CTF: BOTSv3 B2 investigation
